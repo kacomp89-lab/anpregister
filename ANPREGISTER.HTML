@@ -562,7 +562,7 @@ body {
             const user = userCredential.user;
 
             // 2. Save extra profile data in Firestore Database
-            await setDoc(doc(db, "users", user.uid), {
+         await setDoc(doc(db, "users", user.uid), {
                 fullName: fullName,
                 email: email,
                 phone: phone,
@@ -570,9 +570,9 @@ body {
                 todayProfit: "+$1,240.00 (Today)"
             });
 
-            alert("Registration successful!");
+            alert("Registration successful! Redirecting to your dashboard...");
             window.location.href = "index.html";
-        } catch (error) {
+            } catch (error) {
             alert("Error: " + error.message);
         }
     }
