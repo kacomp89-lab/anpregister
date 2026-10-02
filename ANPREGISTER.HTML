@@ -2,49 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ANP - Register</title>
-
 <style>
-
 /* =========================================================
    RESET
 ========================================================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 html {
     width: 100%;
     min-height: 100%;
 }
-
 body {
     width: 100%;
     min-height: 100dvh;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #000;
-
     overflow-x: hidden;
 }
 
 /* =========================================================
    MAIN PAGE
 ========================================================= */
-
 .page {
     position: relative;
     width: 100%;
@@ -53,58 +36,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    padding:
-        max(20px, env(safe-area-inset-top))
-        max(16px, env(safe-area-inset-right))
-        max(20px, env(safe-area-inset-bottom))
-        max(16px, env(safe-area-inset-left));
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 70, 20, .20),
-            rgba(0, 150, 65, .18)
-        ),
-        linear-gradient(
-            135deg,
-            #123b18 0%,
-            #087b35 45%,
-            #00a84f 100%
-        );
+    padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    background: linear-gradient(180deg, rgba(0, 70, 20, .20), rgba(0, 150, 65, .18)), linear-gradient(135deg, #123b18 0%, #087b35 45%, #00a84f 100%);
 }
-
-/* =========================================================
-   BACKGROUND LIGHT
-========================================================= */
 
 .page::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(160,255,130,.35),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 40%,
-            rgba(0,255,150,.25),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(0,255,100,.20),
-            transparent 40%
-        );
+    background: radial-gradient(circle at 20% 10%, rgba(160,255,130,.35), transparent 30%), radial-gradient(circle at 85% 40%, rgba(0,255,150,.25), transparent 35%), radial-gradient(circle at 50% 100%, rgba(0,255,100,.20), transparent 40%);
 }
-
-/* =========================================================
-   DECORATIVE ROAD
-========================================================= */
 
 .road {
     position: absolute;
@@ -113,23 +55,10 @@ body {
     left: -30%;
     bottom: -10%;
     transform: rotate(-3deg);
-
-    background:
-        linear-gradient(
-            165deg,
-            transparent 30%,
-            rgba(0,0,0,.16) 31%,
-            rgba(0,0,0,.16) 65%,
-            transparent 66%
-        );
-
+    background: linear-gradient(165deg, transparent 30%, rgba(0,0,0,.16) 31%, rgba(0,0,0,.16) 65%, transparent 66%);
     opacity: .7;
     pointer-events: none;
 }
-
-/* =========================================================
-   CONTENT CONTAINER
-========================================================= */
 
 .content {
     position: relative;
@@ -137,22 +66,16 @@ body {
     width: 100%;
     max-width: 650px;
     min-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* =========================================================
-   ANP LOGO
-========================================================= */
-
 .brand {
     width: 100%;
     text-align: center;
     color: white;
-
     font-size: clamp(40px, 8vw, 80px);
     line-height: .9;
     font-weight: 900;
@@ -170,29 +93,16 @@ body {
     letter-spacing: 1px;
 }
 
-/* =========================================================
-   LOGIN/REGISTER CARD
-========================================================= */
-
 .login-card {
     width: min(100%, 520px);
     padding: clamp(20px, 4vw, 38px);
     border-radius: clamp(15px, 2.5vw, 28px);
-    
     background: rgba(130, 180, 135, .38);
     border: 1px solid rgba(255,255,255,.20);
-    
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.25),
-        inset 0 1px 1px rgba(255,255,255,.20);
+    box-shadow: 0 20px 60px rgba(0,0,0,.25), inset 0 1px 1px rgba(255,255,255,.20);
 }
-
-/* =========================================================
-   INPUT
-========================================================= */
 
 .input-box {
     width: 100%;
@@ -201,7 +111,6 @@ body {
     display: flex;
     align-items: center;
     padding: 0 clamp(12px, 2vw, 18px);
-    
     background: rgba(255,255,255,.95);
     border-radius: clamp(8px, 1.5vw, 13px);
     box-shadow: 0 4px 15px rgba(0,0,0,.08);
@@ -213,10 +122,6 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,.15);
 }
 
-/* =========================================================
-   INPUT ICON
-========================================================= */
-
 .icon {
     flex: 0 0 28px;
     width: 28px;
@@ -224,10 +129,6 @@ body {
     text-align: center;
     color: #43805b;
 }
-
-/* =========================================================
-   INPUT FIELD
-========================================================= */
 
 .input-box input {
     width: 100%;
@@ -244,10 +145,6 @@ body {
     color: #aaa;
 }
 
-/* =========================================================
-   PASSWORD EYE
-========================================================= */
-
 .eye {
     flex: 0 0 auto;
     cursor: pointer;
@@ -255,10 +152,6 @@ body {
     font-size: clamp(15px, 2vw, 19px);
     padding: 5px;
 }
-
-/* =========================================================
-   OPTIONS
-========================================================= */
 
 .option {
     width: 100%;
@@ -269,10 +162,6 @@ body {
     line-height: 1.5;
     margin: clamp(10px, 1.7vw, 17px) 0;
 }
-
-/* =========================================================
-   CHECKBOX
-========================================================= */
 
 .option input {
     flex: 0 0 auto;
@@ -292,32 +181,22 @@ body {
     box-shadow: inset 0 0 0 4px white;
 }
 
-/* =========================================================
-   LINKS
-========================================================= */
-
 .option a {
     color: #18bde9;
     text-decoration: none;
     font-weight: 600;
 }
 
-/* =========================================================
-   BUTTON
-========================================================= */
-
 .btn {
     width: 100%;
     min-height: clamp(48px, 6vw, 56px);
     border: none;
     border-radius: clamp(24px, 4vw, 32px);
-    
     background: linear-gradient(180deg, #2da45a, #299653);
     color: white;
     font-size: clamp(14px, 1.8vw, 18px);
     font-weight: 600;
     cursor: pointer;
-    
     transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
     box-shadow: 0 6px 18px rgba(0,0,0,.10);
     margin-top: 10px;
@@ -332,10 +211,6 @@ body {
 .btn:active {
     transform: scale(.98);
 }
-
-/* =========================================================
-   DIVIDER
-========================================================= */
 
 .divider {
     width: 100%;
@@ -353,10 +228,6 @@ body {
     background: rgba(255,255,255,.35);
 }
 
-/* =========================================================
-   LOGIN LINK BUTTON
-========================================================= */
-
 .login-btn {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -367,140 +238,53 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-color: white;
 }
-
-/* =========================================================
-   MEDIA QUERIES
-========================================================= */
-
-@media (max-width: 380px) {
-    .page {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-    .login-card {
-        padding: 18px;
-    }
-}
-
-@media (min-width: 900px) {
-    body {
-        background: radial-gradient(circle at center, #222 0%, #080808 55%, #000 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .page {
-        width: min(100%, 1200px);
-        min-height: min(100dvh, 1000px);
-        border-radius: 25px;
-        box-shadow: 0 30px 100px rgba(0,0,0,.75);
-    }
-}
-
-@media (max-height: 600px) and (orientation: landscape) {
-    .content {
-        justify-content: flex-start;
-        padding-top: 10px;
-        overflow-y: auto;
-    }
-    .brand {
-        font-size: 35px;
-        margin-bottom: 12px;
-    }
-    .login-card {
-        padding: 15px;
-        max-width: 500px;
-    }
-    .input-box {
-        min-height: 42px;
-        margin-bottom: 8px;
-    }
-}
-
 </style>
 </head>
 
 <body>
-
 <div class="page">
     <div class="road"></div>
     <main class="content">
-
-        <!-- BRANDING -->
-        <div class="brand">
-            ANP
-        </div>
-
-        <!-- REGISTER CARD -->
+        <div class="brand">ANP</div>
         <div class="login-card">
-            
             <div class="form-title">Create an Account</div>
 
             <!-- FULL NAME -->
             <div class="input-box">
                 <div class="icon">👤</div>
-                <input 
-                    type="text" 
-                    placeholder="Full Name" 
-                    autocomplete="off"
-                >
+                <input type="text" id="fullname" placeholder="Full Name" autocomplete="off">
             </div>
 
             <!-- EMAIL -->
             <div class="input-box">
                 <div class="icon">✉️</div>
-                <input 
-                    type="email" 
-                    inputmode="email"
-                    placeholder="Email Address" 
-                    autocomplete="off"
-                >
+                <input type="email" id="email" inputmode="email" placeholder="Email Address" autocomplete="off">
             </div>
 
             <!-- PHONE -->
             <div class="input-box">
                 <div class="icon">📱</div>
-                <input 
-                    type="tel" 
-                    inputmode="tel"
-                    placeholder="Phone Number" 
-                    autocomplete="off"
-                >
+                <input type="tel" id="phone" inputmode="tel" placeholder="Phone Number" autocomplete="off">
             </div>
 
             <!-- PASSWORD -->
             <div class="input-box">
                 <div class="icon">🔒</div>
-                <input 
-                    id="password" 
-                    type="password" 
-                    placeholder="Create Password" 
-                    autocomplete="off"
-                >
+                <input id="password" type="password" placeholder="Create Password" autocomplete="off">
                 <div class="eye" onclick="togglePassword('password')" title="Show password">👁</div>
             </div>
 
             <!-- CONFIRM PASSWORD -->
             <div class="input-box">
                 <div class="icon">🔒</div>
-                <input 
-                    id="confirm-password" 
-                    type="password" 
-                    placeholder="Confirm Password" 
-                    autocomplete="off"
-                >
+                <input id="confirm-password" type="password" placeholder="Confirm Password" autocomplete="off">
                 <div class="eye" onclick="togglePassword('confirm-password')" title="Show password">👁</div>
             </div>
 
             <!-- TERMS -->
             <label class="option">
                 <input type="checkbox">
-                <span>
-                    I agree to the 
-                    <a href="#" onclick="return false">Terms of Service</a> & 
-                    <a href="#" onclick="return false">Privacy Policy</a>
-                </span>
+                <span>I agree to the <a href="#" onclick="return false">Terms of Service</a> & <a href="#" onclick="return false">Privacy Policy</a></span>
             </label>
 
             <!-- REGISTER BUTTON -->
@@ -508,7 +292,6 @@ body {
                 Register Now
             </button>
 
-            <!-- DIVIDER -->
             <div class="divider">
                 <span></span>
                 <div>Already have an account?</div>
@@ -519,17 +302,22 @@ body {
             <button class="btn login-btn" onclick="window.location.href='ANP.HTML'">
                 Log In
             </button>
-
         </div>
     </main>
 </div>
+
+<script>
+    function togglePassword(fieldId) {
+        const pwdInput = document.getElementById(fieldId);
+        pwdInput.type = pwdInput.type === "password" ? "text" : "password";
+    }
+</script>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
-    // PASTE YOUR FIREBASE CONFIG HERE
     const firebaseConfig = {
         apiKey: "AIzaSyDZb4KcR5Tvw3x_ipR2ocgdUDqh47Arz6M",
         authDomain: "anp-money.firebaseapp.com",
@@ -543,13 +331,17 @@ body {
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Attach function globally so HTML onclick can access it
     window.handleRegister = async function() {
-        const fullName = document.querySelector('input[placeholder="Full Name"]').value;
-        const email = document.querySelector('input[placeholder="Email Address"]').value;
-        const phone = document.querySelector('input[placeholder="Phone Number"]').value;
+        const fullName = document.getElementById("fullname").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
         const password = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirm-password").value;
+
+        if (!fullName || !email || !password) {
+            alert("Please fill out all required fields.");
+            return;
+        }
 
         if (password !== confirmPassword) {
             alert("Passwords do not match!");
@@ -557,26 +349,24 @@ body {
         }
 
         try {
-            // 1. Create user in Firebase Auth
+            // 1. Create user in Firebase Authentication
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // 2. Save extra profile data in Firestore Database
-         await setDoc(doc(db, "users", user.uid), {
+            // 2. Save profile data in Firestore Database[cite: 2]
+            await setDoc(doc(db, "users", user.uid), {
                 fullName: fullName,
                 email: email,
                 phone: phone,
-                balance: "$34,250.00",
-                todayProfit: "+$1,240.00 (Today)"
+                createdAt: new Date().toISOString()
             });
 
-            alert("Registration successful! Redirecting to your dashboard...");
-            window.location.href = "index.html";
-            } catch (error) {
+            alert("Registration successful!");
+            window.location.href = "index.html"; 
+        } catch (error) {
             alert("Error: " + error.message);
         }
     }
 </script>
-
 </body>
 </html>
