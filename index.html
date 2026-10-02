@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
+
+<title>ANP - Dashboard</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100dvh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #000;
+
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding:
+        max(20px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-right))
+        max(20px, env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 70, 20, .20),
+            rgba(0, 150, 65, .18)
+        ),
+        linear-gradient(
+            135deg,
+            #123b18 0%,
+            #087b35 45%,
+            #00a84f 100%
+        );
+}
+
+/* =========================================================
+   BACKGROUND LIGHT
+========================================================= */
+
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(160,255,130,.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(0,255,150,.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0,255,100,.20),
+            transparent 40%
+        );
+}
+
+/* =========================================================
+   DECORATIVE ROAD
+========================================================= */
+
+.road {
+    position: absolute;
+    width: 160%;
+    height: 50%;
+    left: -30%;
+    bottom: -10%;
+    transform: rotate(-3deg);
+
+    background:
+        linear-gradient(
+            165deg,
+            transparent 30%,
+            rgba(0,0,0,.16) 31%,
+            rgba(0,0,0,.16) 65%,
+            transparent 66%
+        );
+
+    opacity: .7;
+    pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT CONTAINER
+========================================================= */
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* =========================================================
+   ANP LOGO (SCALED DOWN FOR DASHBOARD)
+========================================================= */
+
+.brand {
+    width: 100%;
+    text-align: center;
+    color: white;
+
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: clamp(15px, 3vh, 25px);
+    text-shadow: 0 4px 8px rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   GLASS CARD MODULES
+========================================================= */
+
+.glass-card {
+    width: min(100%, 520px);
+    padding: clamp(20px, 4vw, 30px);
+    border-radius: clamp(15px, 2.5vw, 24px);
+    
+    background: rgba(130, 180, 135, .38);
+    border: 1px solid rgba(255,255,255,.20);
+    
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.20),
+        inset 0 1px 1px rgba(255,255,255,.20);
+        
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* =========================================================
+   DASHBOARD GUI ELEMENTS
+========================================================= */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 1px solid rgba(255,255,255,.4);
+}
+
+.greeting {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting .hello {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.greeting .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-link-btn {
+    margin-left: auto;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.login-link-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.login-link-btn:active {
+    transform: scale(0.95);
+}
+
+.balance-box {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 25px 20px;
+    background: rgba(0,0,0,.15);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.balance-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.balance-amount {
+    font-size: clamp(32px, 6vw, 42px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.profit-badge {
+    display: inline-block;
+    background: rgba(45, 164, 90, 0.4);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(45, 164, 90, 0.8);
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.action-row {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    flex: 1;
+    min-height: clamp(44px, 5vw, 52px);
+    border: none;
+    border-radius: clamp(12px, 2vw, 16px);
+    
+    background: linear-gradient(180deg, #2da45a, #299653);
+    color: white;
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: 600;
+    cursor: pointer;
+    
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,.10);
+}
+
+.btn:hover {
+    background: linear-gradient(180deg, #35ad62, #238c4c);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,.1);
+    border-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+/* =========================================================
+   LIST ITEMS (INVESTMENTS/ACTIVITY)
+========================================================= */
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    padding-bottom: 10px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.item-date {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.item-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8affb7;
+}
+
+/* =========================================================
+   MEDIA QUERIES
+========================================================= */
+
+@media (min-width: 900px) {
+    body {
+        background: radial-gradient(circle at center, #222 0%, #080808 55%, #000 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page {
+        width: min(100%, 1200px);
+        min-height: min(100dvh, 900px);
+        border-radius: 25px;
+        box-shadow: 0 30px 100px rgba(0,0,0,.75);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+    <div class="road"></div>
+    <main class="content">
+
+        <!-- BRANDING -->
+        <div class="brand">
+            ANP
+        </div>
+
+        <!-- MAIN DASHBOARD CARD -->
+        <div class="glass-card">
+            
+            <div class="profile-header">
+                <div class="avatar">👤</div>
+                <div class="greeting">
+                    <span class="hello">Welcome back,</span>
+                    <span class="name">----</span>
+                </div>
+                <!-- LOGIN BUTTON CONNECTED TO ANP.HTML -->
+                <a href="ANP.HTML" class="login-link-btn">Login</a>
+            </div>
+
+            <div class="balance-box">
+                <div class="balance-label">Total Portfolio Value</div>
+                <div class="balance-amount">$34,250.00</div>
+                <div class="profit-badge">
+                    ---- (Today)
+                </div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn" onclick="alert('Opening investment portal...')">Invest</button>
+                <button class="btn btn-outline" onclick="alert('Processing withdrawal...')">Withdraw</button>
+            </div>
+
+        </div>
+
+        <!-- RECENT ACTIVITY CARD -->
+        <div class="glass-card">
+            
+            <div class="section-title">Active Investments</div>
+
+            <div class="list-item">
+                <div class="item-info">
+                    <span class="item-title">Global Tech Fund</span>
+                    <span class="item-date">Accrued yesterday</span>
+                </div>
+                <div class="item-value">----</div>
+            </div>
+
+            <div class="list-item">
+                <div class="item-info">
+                    <span class="item-title">Green Energy Yield</span>
+                    <span class="item-date">Accrued 3 days ago</span>
+                </div>
+                <div class="item-value">----</div>
+            </div>
+
+            <div class="list-item">
+                <div class="item-info">
+                    <span class="item-title">Crypto Alpha Stake</span>
+                    <span class="item-date">Accrued last week</span>
+                </div>
+                <div class="item-value">----</div>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+ const firebaseConfig = {
+        apiKey: "AIzaSyDZb4KcR5Tvw3x_ipR2ocgdUDqh47Arz6M",
+        authDomain: "anp-money.firebaseapp.com",
+        projectId: "anp-money",
+        storageBucket: "anp-money.firebasestorage.app",
+        messagingSenderId: "581687927989",
+        appId: "1:581687927989:web:41218431483f24a18b0afc"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Listen for user login state
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            // Fetch user document from Firestore
+            const docRef = doc(db, "users", user.uid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                // Replace placeholders with real user details
+                document.querySelector(".name").textContent = data.fullName;
+                document.querySelector(".balance-amount").textContent = data.balance;
+                document.querySelector(".profit-badge").textContent = data.todayProfit;
+            }
+
+            // Change login button to logout
+            const loginBtn = document.querySelector(".login-link-btn");
+            loginBtn.textContent = "Logout";
+            loginBtn.href = "#";
+            loginBtn.onclick = async () => {
+                await signOut(auth);
+                window.location.reload();
+            };
+        } else {
+            // If user is not logged in, you can optionally redirect them to ANP.HTML
+            // window.location.href = "ANP.HTML";
+        }
+    });
+</script>
+
+</body>
+</html>
