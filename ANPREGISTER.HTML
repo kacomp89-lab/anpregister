@@ -37,7 +37,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-    background: linear-gradient(180deg, rgba(0, 70, 20, .20), rgba(0, 150, 65, .18)), linear-gradient(135deg, #123b18 0%, #087b35 45%, #00a84f 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .6)), url('WhatsApp Image 2026-10-01 at 6.31.01 AM.jpeg') no-repeat center center / cover;
 }
 
 .page::before {
@@ -45,7 +45,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 20% 10%, rgba(160,255,130,.35), transparent 30%), radial-gradient(circle at 85% 40%, rgba(0,255,150,.25), transparent 35%), radial-gradient(circle at 50% 100%, rgba(0,255,100,.20), transparent 40%);
+    background: radial-gradient(circle at 20% 10%, rgba(160,255,130,.15), transparent 30%), radial-gradient(circle at 85% 40%, rgba(0,255,150,.1), transparent 35%), radial-gradient(circle at 50% 100%, rgba(0,255,100,.15), transparent 40%);
 }
 
 .road {
@@ -97,7 +97,7 @@ body {
     width: min(100%, 520px);
     padding: clamp(20px, 4vw, 38px);
     border-radius: clamp(15px, 2.5vw, 28px);
-    background: rgba(130, 180, 135, .38);
+    background: rgba(20, 40, 25, 0.55);
     border: 1px solid rgba(255,255,255,.20);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -353,7 +353,7 @@ body {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // 2. Save profile data in Firestore Database[cite: 2]
+            // 2. Save profile data in Firestore Database
             await setDoc(doc(db, "users", user.uid), {
                 fullName: fullName,
                 email: email,
